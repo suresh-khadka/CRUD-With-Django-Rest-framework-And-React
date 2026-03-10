@@ -4,7 +4,11 @@ import "./SingleItem.css";
 const SingleItem = ({ item }) => {
   return (
     <div className="single-item">
-      <input type="checkbox" checked={item.completed} onChange={() => null} />
+      <input
+        type="checkbox"
+        checked={item.completed}
+        onChange={() => editCompleted(item.id)}
+      />
       <p
         style={{
           textTransform: "capitalize",
