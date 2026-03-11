@@ -22,10 +22,10 @@ const SingleItem = ({ item }) => {
         <FiEdit size={18} />
       </button>
 
-      <button
+       <button
         className="btn icon-btn remove-btn"
         type="button"
-        onClick={() => null}
+        onClick={() => removeItem(item.id)}
       >
         <FiTrash2 size={18} />
       </button>
