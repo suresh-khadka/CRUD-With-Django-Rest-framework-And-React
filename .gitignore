@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 node_modules/
+.env
+DEPLOYMENT_README.md
+.env.example

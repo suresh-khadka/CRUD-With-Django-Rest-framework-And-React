@@ -59,7 +59,14 @@ ROOT_URLCONF = 'backend.urls'
 
 CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS',
-    default='http://localhost:5173,http://127.0.0.1:5173',
+    default='http://localhost:5173,http://127.0.0.1:5173,https://localhost:5173,https://127.0.0.1:5173',
+    cast=lambda v: [s.strip() for s in v.split(',')]
+)
+
+# For CSRF protection - allow same origin + trusted origins
+CSRF_TRUSTED_ORIGINS = config(
+    'CSRF_TRUSTED_ORIGINS',
+    default='http://localhost:5173,http://127.0.0.1:5173,https://localhost:5173,https://127.0.0.1:5173',
     cast=lambda v: [s.strip() for s in v.split(',')]
 )
 

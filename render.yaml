@@ -9,3 +9,11 @@ services:
         value: "False"
       - key: DJANGO_SETTINGS_MODULE
         value: backend.settings
+      - key: SECRET_KEY
+        fromGroup: django_secrets
+      - key: ALLOWED_HOSTS
+        fromGroup: django_config
+      - key: CORS_ALLOWED_ORIGINS
+        fromGroup: django_config
+      - key: CSRF_TRUSTED_ORIGINS
+        fromGroup: django_config
