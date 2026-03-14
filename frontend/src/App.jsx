@@ -6,7 +6,8 @@ import "./App.css";
 import { nanoid } from "nanoid";
 import Form from "./components/Form";
 
-const BASE_URL = "http://127.0.0.1:8000/api/grocery";
+// Use relative path for API calls - works in both dev and production
+const BASE_URL = "/api/grocery";
 
 const App = () => {
     const [items, setItems] = useState([]);
@@ -47,6 +48,7 @@ const App = () => {
         try {
             const res = await fetch(`${BASE_URL}/${itemId}/toggle/`, {
                 method: "POST",
+                headers: { "Content-Type": "application/json" },
             });
             if (!res.ok) throw new Error();
             const updated = await res.json();
@@ -62,6 +64,7 @@ const App = () => {
         try {
             const res = await fetch(`${BASE_URL}/${itemId}/`, {
                 method: "DELETE",
+                headers: { "Content-Type": "application/json" },
             });
             if (!res.ok) throw new Error();
             setItems((prev) => prev.filter((item) => item.id !== itemId));
